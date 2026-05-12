@@ -1,0 +1,91 @@
+question,expected_keyword,answer,score,response_time_seconds
+Which loans are high risk?,high,"
+Question:
+Which loans are high risk?
+
+Relevant business context:
+Account CRK907247 with Loan ID LN53385 was paid off after 428 days. The loan type was HYBRID VEHICLE FINANCE. The GAP type was DEALER GAP with GAP amount EUR 1235.2. The dealership was LIMERICK VEHICLE SALES. The dealer GAP company was AUTOPROTECT EUROPE. The case is categorized as HIGH RISK because High GAP amount.
+Account EUC932811 with Loan ID LN38992 was paid off after 353 days. The loan type was NEW VEHICLE DEALER FINANCE. The GAP type was DEALER GAP with GAP amount EUR 1523.5. The dealership was MAYO AUTO SALES. The dealer GAP company was CAR PROTECT EUROPE. The case is categorized as HIGH RISK because High GAP amount.
+Dealer risk should be reviewed when a dealership has repeated high-risk GAP early payoff cases.
+
+Data result:
+ACCOUNT_NUMBER LOAN_ID           DEALERSHIP  GAP_AMOUNT_EUR  DAYS_TO_PAYOFF                                RISK_REASON
+     CRK101089 LN63710   DUBLIN CITY MOTORS          773.76              39               Loan paid off within 90 days
+     CRK110481 LN59244   DUBLIN CITY MOTORS          393.10              50               Loan paid off within 90 days
+     CRK122951 LN22932     KERRY CAR CENTRE         1077.36              60               Loan paid off within 90 days
+     CRK139588 LN31683  BELFAST ROAD MOTORS         1230.38             103              Loan paid off within 180 days
+     CRK153244 LN70577  SLIGO AUTO EXCHANGE          964.00              84 Missing dealer GAP company requires review
+     CRK156050 LN85715  SLIGO AUTO EXCHANGE         1334.87              53               Loan paid off within 90 days
+     CRK178002 LN58723     KERRY CAR CENTRE          960.96              40               Loan paid off within 90 days
+     CRK185365 LN96053   DUBLIN CITY MOTORS         1622.57              55               Loan paid off within 90 days
+     CRK192756 LN83927   DUBLIN CITY MOTORS         1477.26              71               Loan paid off within 90 days
+     CRK227009 LN19252 WATERFORD AUTO HOUSE          606.30              56               Loan paid off within 90 days
+
+Business summary:
+Based on the retrieved GAP early payoff rules and the Gold AI context data, the answer should be interpreted using the business rules above. High-risk cases are mainly driven by payoff within 90 days, missing GAP/company information, or repeated dealer-level early payoff activity.
+",1,0.01
+Why is a loan flagged?,90,"
+Question:
+Why is a loan flagged?
+
+Relevant business context:
+Account CRK648793 with Loan ID LN77350 was paid off after 180 days. The loan type was USED CAR PERSONAL LOAN. The GAP type was DEALER GAP with GAP amount EUR 1543.3. The dealership was KERRY CAR CENTRE. The dealer GAP company was ALLIANZ PARTNERS. The case is categorized as HIGH RISK because Loan paid off within 180 days.
+Account LIM478042 with Loan ID LN33840 was paid off after 38 days. The loan type was USED CAR PERSONAL LOAN. The GAP type was DEALER GAP with GAP amount EUR 1042.3. The dealership was MAYO AUTO SALES. The dealer GAP company was CAR PROTECT EUROPE. The case is categorized as HIGH RISK because Loan paid off within 90 days.
+Account WAT829347 with Loan ID LN31527 was paid off after 72 days. The loan type was USED CAR PERSONAL LOAN. The GAP type was DEALER GAP with GAP amount EUR 1184.7. The dealership was SLIGO AUTO EXCHANGE. The dealer GAP company was AUTOPROTECT EUROPE. The case is categorized as HIGH RISK because Loan paid off within 90 days.
+
+Data result:
+{'total_accounts': 1200, 'total_gap_amount': 1188229.08, 'high_risk_count': 745, 'total_cases': 1200}
+
+Business summary:
+Based on the retrieved GAP early payoff rules and the Gold AI context data, the answer should be interpreted using the business rules above. High-risk cases are mainly driven by payoff within 90 days, missing GAP/company information, or repeated dealer-level early payoff activity.
+",1,0.0
+What is Total GAP Amount?,gap,"
+Question:
+What is Total GAP Amount?
+
+Relevant business context:
+The KPI cards show Total Accounts, Total GAP Amount, High Risk Count, and Review Required Count.
+Total GAP Amount means the sum of GAP_AMOUNT_EUR.
+The line chart shows Total Accounts by Payoff Date.
+
+Data result:
+Total GAP Amount EUR: €1,188,229.08
+
+Business summary:
+Based on the retrieved GAP early payoff rules and the Gold AI context data, the answer should be interpreted using the business rules above. High-risk cases are mainly driven by payoff within 90 days, missing GAP/company information, or repeated dealer-level early payoff activity.
+",1,0.0
+Which dealers have the highest risk?,dealer,"
+Question:
+Which dealers have the highest risk?
+
+Relevant business context:
+A low-risk GAP early payoff case is a loan paid off after 180 days.
+Dealer risk should be reviewed when a dealership has repeated high-risk GAP early payoff cases.
+A high-risk GAP early payoff case is a loan paid off within 90 days of the original loan date.
+
+Data result:
+            DEALERSHIP  total_accounts  total_gap_amount  high_risk_count
+   SLIGO AUTO EXCHANGE             117         115079.52               77
+       MAYO AUTO SALES             104         110071.20               74
+   BELFAST ROAD MOTORS             107         106125.59               69
+      CORK AUTO CENTRE             110         108339.71               63
+LIMERICK VEHICLE SALES              92          99897.51               62
+
+Business summary:
+Based on the retrieved GAP early payoff rules and the Gold AI context data, the answer should be interpreted using the business rules above. High-risk cases are mainly driven by payoff within 90 days, missing GAP/company information, or repeated dealer-level early payoff activity.
+",1,0.01
+What does review required mean?,review,"
+Question:
+What does review required mean?
+
+Relevant business context:
+The KPI cards show Total Accounts, Total GAP Amount, High Risk Count, and Review Required Count.
+A case requires manual review when the GAP amount is missing, the dealer GAP company is missing, the dealership name is missing, or the loan is paid off within 90 days.
+Account IECU792067 with Loan ID LN83623 was paid off after 27 days. The loan type was ELECTRIC VEHICLE FINANCE. The GAP type was DEALER GAP with GAP amount EUR unknown. The dealership was MAYO AUTO SALES. The dealer GAP company was CAR PROTECT EUROPE. The case is categorized as HIGH RISK because Missing GAP amount requires review.
+
+Data result:
+{'total_accounts': 1200, 'total_gap_amount': 1188229.08, 'high_risk_count': 745, 'total_cases': 1200}
+
+Business summary:
+Based on the retrieved GAP early payoff rules and the Gold AI context data, the answer should be interpreted using the business rules above. High-risk cases are mainly driven by payoff within 90 days, missing GAP/company information, or repeated dealer-level early payoff activity.
+",1,0.0
